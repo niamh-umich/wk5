@@ -98,14 +98,16 @@
 
 /* reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .grid > div {
-    transition: none;
+  * {
+    animation: none !important;
+    transition: none !important;
   }
 
   .grid > div:hover {
     box-shadow: none;
   }
 }
+
 
 /* dark mode */
 @media (prefers-color-scheme: dark) {
