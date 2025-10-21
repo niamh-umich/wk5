@@ -17,52 +17,55 @@
 }
 
 /* STUDENT CODE STARTS HERE */
-/* tablet */
 @media (min-width: 768px) {
-.grid {
-  display: grid;
-  grid-template-columns: 45% 45%;
-  justify-items: center;
-}
-
-/* 2-1-2-1 pattern */
-.grid > div:nth-child(3n) {
-  grid-column: span 2;
-  width: 50%;
-  margin: 0 auto;
-}
-
-.gallery {
-  display: flex;
-  justify-content: space-around;
-}
-.gallery img {
-  flex: 1 1 30%;
-}
-
-.grid > div:nth-child(even) {
-  background-color: rgba(230, 173, 221, 0.3);
-}
-}
-
-/* desktop */
-@media (min-width: 1200px) {
   .grid {
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
+    grid-template-columns: 45% 45%;
+    justify-items: center;
+    gap: 20px;
   }
 
-  .grid > div:nth-child(3n) {
+
+  .grid div:nth-child(3n) {
+    grid-column: span 2;
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .gallery {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .gallery img {
+    flex: 1 1 30%;
+  }
+
+  .grid div:nth-child(even) {
+    background-color: #ffeeba;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: stretch;
+    align-items: stretch;
+  }
+
+  .grid div:nth-child(3n) {
     grid-column: auto;
     width: auto;
     margin: 0;
   }
 
-  .grid > div {
+  .grid div {
     transition: box-shadow 0.3s ease;
   }
-  .grid > div:hover {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+
+  .grid div:hover {
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
   }
 
   .gallery {
@@ -70,15 +73,14 @@
   }
 
   .gallery img {
-    flex: 1 1 200px; 
+    flex: 1 1 200px;
   }
 }
 
-/*print view*/
 @media print {
   body {
-    background: white;
-    color: black;
+    background: #fff;
+    color: #000;
   }
 
   .gallery {
@@ -86,38 +88,36 @@
   }
 
   .grid {
-    display: block;
+    grid-template-columns: 1fr;
   }
 
-  .grid > div {
+  .grid div {
     border: 1px solid #000;
-    margin-bottom: 10px;
     page-break-inside: avoid;
   }
 }
 
-/* reduced motion */
+
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
+  .grid div:hover {
+    box-shadow: none !important;
     transition: none !important;
   }
 
-  .grid > div:hover {
-    box-shadow: none;
+  .gallery img {
+    transition: none !important;
   }
 }
 
 
-/* dark mode */
 @media (prefers-color-scheme: dark) {
   body {
-    background-color: #111;
+    background: #111;
     color: #eee;
   }
 
-  .grid > div {
-    background-color: #111;
+  .grid div {
+    background: #111;
     border: 1px solid #EB5B00;
   }
 }
